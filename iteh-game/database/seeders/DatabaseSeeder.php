@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ChampionSeeder::class,
             SkinSeeder::class,
+            UserChampionSeeder::class,
         ]);
     }
 }

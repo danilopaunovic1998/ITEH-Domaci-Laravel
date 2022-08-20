@@ -42,8 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function championsOwned()
+    public function champions()
     {
-        return $this->belongsToMany(Champion::class, 'user_champion_relationship');
+        return $this->belongsToMany(Champion::class, 'user_champions');
     }
 }

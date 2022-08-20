@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_champion_relationship', function (Blueprint $table) {
+        Schema::create('user_champions', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('champion_id');
-            $table->unique(['user_id', 'champion_id']);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_champion_relationship');
+        Schema::dropIfExists('user_champions');
     }
 };
