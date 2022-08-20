@@ -4,10 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
-use App\Models\Skin;
-
-class SkinSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +15,6 @@ class SkinSeeder extends Seeder
      */
     public function run()
     {
-        Skin::factory(10)->create();
+        User::factory(10)->create();
     }
 }
