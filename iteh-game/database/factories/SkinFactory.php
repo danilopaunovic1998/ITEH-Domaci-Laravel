@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Skin;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SkinFactory extends Factory
 {
+    protected $model = Skin::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,9 @@ class SkinFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>$this->faker->lastName(),
+            'color'=> $this->faker->colorName(),
+            'champion_id'=>$this->faker->numberBetween(1,20),
         ];
     }
 }

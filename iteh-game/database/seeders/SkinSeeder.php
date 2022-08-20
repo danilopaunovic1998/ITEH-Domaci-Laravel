@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\Skin;
+use Database\Factories\SkinFactory;
 
 class SkinSeeder extends Seeder
 {
@@ -16,6 +17,6 @@ class SkinSeeder extends Seeder
      */
     public function run()
     {
-        Skin::factory(10)->create();
+        Skin::factory(40)->create();
     }
 }
