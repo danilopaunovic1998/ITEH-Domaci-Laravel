@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('skins', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('color');
-            $table->timestamps();
-            //dodati spoljni kljuc na champ-a
+        Schema::table('skins', function (Blueprint $table) {
+            $table->foreignId('champion_id');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skins');
+        Schema::table('skins', function (Blueprint $table) {
+            $table->dropForeign('champion_id');
+        });
     }
 };

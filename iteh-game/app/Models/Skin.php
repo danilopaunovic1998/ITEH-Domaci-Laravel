@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Skin extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'color',
+    ];
+
+    public function champion(){
+        return $this->belongsTo(Champion::class);
+    }
+    
 }

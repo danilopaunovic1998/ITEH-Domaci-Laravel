@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('champions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('attack')->default(0);
+            $table->double('defence')->default(0);
             $table->timestamps();
+            //skinovi champ-a
+
         });
     }
 
