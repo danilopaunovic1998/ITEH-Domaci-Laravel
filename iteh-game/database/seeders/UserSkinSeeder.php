@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\UserChampion;
+use App\Models\UserSkin;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserChampionSeeder extends Seeder
+class UserSkinSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,6 @@ class UserChampionSeeder extends Seeder
      */
     public function run()
     {
-
-        UserChampion::factory(100)->create();
+        UserSkin::factory(100)->create();
     }
 }

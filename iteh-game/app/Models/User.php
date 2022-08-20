@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Champion::class, 'user_champions');
     }
+
+    public function skins()
+    {
+        return $this->belongsToMany(Skin::class,'user_skins');
+    }
 }

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -14,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_champions', function (Blueprint $table) {
+        Schema::create('user_skins', function (Blueprint $table) {
             $table->integer('user_id');
-            $table->integer('champion_id');
-            //$table->unique(['user_id', 'champion_id'], 'uq_columns');
+            $table->integer('skin_id');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_champions');
+        Schema::dropIfExists('user_skins');
     }
 };
