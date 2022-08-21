@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChampionController;
+use App\Http\Controllers\ChampionSkinController;
 use App\Http\Controllers\SkinController;
 use App\Http\Resources\ChampionResource;
 use App\Http\Resources\SkinResource;
@@ -27,3 +28,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/champions',ChampionController::class)->only(['index', 'show', 'store','update', 'destroy']);
 Route::resource('/skins', SkinController::class)->only(['index', 'show', 'store','update', 'destroy']);
+Route::resource('champions.skins', ChampionSkinController::class)->only('index');
