@@ -2,84 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SkinCollection;
+use App\Http\Resources\SkinResource;
 use App\Models\Skin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SkinController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //display all skins
     public function index()
     {
-        //
+        $skins = Skin::all();
+        return new SkinCollection($skins);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Skin  $skin
-     * @return \Illuminate\Http\Response
-     */
+    //display skin with ID
     public function show(Skin $skin)
     {
-        //
+        return new SkinResource($skin);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Skin  $skin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Skin $skin)
+    //add new skin
+    public function store(Request $request)
     {
-        //
+        $skin = new Skin;
+
+        $skin->name = $request->name;
+        $skin->color = $request->color;
+        $skin->champion_id = $request->champion_id;
+
+        $skin->save();    
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Skin  $skin
-     * @return \Illuminate\Http\Response
-     */
+    //update skin with id
+
     public function update(Request $request, Skin $skin)
     {
-        //
+        $skin = Skin::where('id','=', $skin->id)->first();
+
+        $skin->update($request->all());
+        return $skin;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Skin  $skin
-     * @return \Illuminate\Http\Response
-     */
+    //delete champion with ID
+
     public function destroy(Skin $skin)
     {
-        //
+        $deleted = DB::table('skins')->where('id','=',$skin->id)->delete();
     }
 }

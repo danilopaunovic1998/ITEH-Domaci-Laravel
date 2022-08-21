@@ -12,8 +12,16 @@ class ChampionResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public function toArray($request)
+    public static $wrap = 'champion';
+     public function toArray($request)
     {
-        return parent::toArray($request);
+
+        return [
+            'id'=>$this->resource->id,
+            'name'=>$this->resource->name,
+            'attack'=>$this->resource->attack,
+            'defence'=>$this->resource->defence,
+            //'skins'=> new SkinCollection($this->resource->skins),
+        ];
     }
 }

@@ -12,8 +12,14 @@ class SkinResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+    public static $wrap = 'skin';
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'id'=>$this->resource->id,
+            'name'=>$this->resource->name,
+            'color'=>$this->resource->color,
+            'champion'=> new ChampionResource($this->resource->champion),
+        ];
     }
 }
