@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ChampionController;
 use App\Http\Controllers\ChampionSkinController;
 use App\Http\Controllers\SkinController;
@@ -26,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('/champions', [ChampionController::class,'index']);
 // Route::get('/champions/{id}', [ChampionController::class,'show']);
 
-Route::resource('/champions',ChampionController::class)->only(['index', 'show', 'store','update', 'destroy']);
-Route::resource('/skins', SkinController::class)->only(['index', 'show', 'store','update', 'destroy']);
-Route::resource('champions.skins', ChampionSkinController::class)->only('index');
+//Route::resource('/champions',ChampionController::class)->only(['index', 'show', 'store','update', 'destroy']);
+//Route::resource('/skins', SkinController::class)->only(['index', 'show', 'store','update', 'destroy']);
+//Route::resource('champions.skins', ChampionSkinController::class)->only('index');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
