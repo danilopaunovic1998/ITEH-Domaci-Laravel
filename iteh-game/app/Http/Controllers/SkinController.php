@@ -32,7 +32,8 @@ class SkinController extends Controller
         $skin->color = $request->color;
         $skin->champion_id = $request->champion_id;
 
-        $skin->save();    
+        $skin->save(); 
+          
     }
 
     //update skin with id

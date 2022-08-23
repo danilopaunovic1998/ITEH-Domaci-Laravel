@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserChampion extends Model
 {
     use HasFactory;
+    
 }
